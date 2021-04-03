@@ -1,0 +1,104 @@
+/* ESTILOS CSS PARA EL MODULO USUARIO */
+
+:root {
+    --primary: #2E373E;
+    --light: #ffffff;
+    --grey: #efefef;
+}
+
+body{
+    /* overflow-x: hidden; */
+    font-family: 'Mulish', sans-serif;
+    height: 100%;
+    font-weight: 300;
+    background-color: #efefef;
+}
+/* OCULTAR SCROLLS */
+html body::-webkit-scrollbar { display: none; }
+
+/* MENUS - FOOTER */
+#wrapper {
+    overflow-x: hidden;
+ }
+
+/* Sidebar (Menu lateral) */
+#sidebar-wrapper {
+  min-height: 100vh;
+  margin-left: -15rem;
+  border-right: 4px solid #FC863A;
+  -webkit-transition: margin .25s ease-out;
+  -moz-transition: margin .25s ease-out;
+  -o-transition: margin .25s ease-out;
+  transition: margin .25s ease-out;
+}
+
+#sidebar-wrapper .sidebar-heading {
+  padding: 0.875rem 1.25rem;
+  font-size: 1.6rem;
+}
+
+#sidebar-wrapper .list-group {
+  width: 18rem;
+}
+
+#page-content-wrapper {
+  min-width: 100vw;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+  margin-left: 0;
+}
+
+.btn-menu {
+    background-color: #E26F25 ;
+    color: #ECF0F1;
+}
+.btn-menu:hover {
+    background-color: #FC863A !important;
+    color: #ECF0F1;
+}
+a:hover{
+    text-decoration: none;
+}
+.lista-menu{
+    list-style: none;
+}
+
+@media (min-width: 768px) {
+  #sidebar-wrapper {
+    margin-left: 0;
+  }
+
+  #page-content-wrapper {
+    min-width: 0;
+    width: 100%;
+  }
+
+  #wrapper.toggled #sidebar-wrapper {
+    margin-left: -15rem;
+  }
+}
+footer{
+    border-top: 4px solid #FC863A;
+}
+/* /MENUS - FOOTER */
+
+/* INICIO */
+.text-logo { color: #FC863A; }
+
+/* /INICIO */
+
+/* FORMULARIO EVENTO */
+
+/* FIN FORMUALRIO EVENTO */
+
+/* TABLAS */
+
+/* FIN TABLAS */
+
+/* CONFIGURACIÓN */
+.img-avatar{
+  height: 163px !important; 
+}
+/* FIN CONFIGURACIÓN */
+

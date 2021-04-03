@@ -1,0 +1,108 @@
+/* ESTILOS CSS PARA EL MODULO ADMINISTRADOR */
+
+/* Tipografia, Tamaño, Color */
+body{
+    /* overflow-x: hidden; */
+    font-family: 'Mulish', sans-serif;
+    height: 100%;
+    font-weight: 300;
+    background-color: #efefef;
+}
+
+iframe{
+  display: block;
+  width: 100%;
+  border: none;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Ocultar scroll horizontal */
+html body::-webkit-scrollbar { display: none; }
+
+/* Sidebar (Menu lateral) */
+#sidebar-wrapper {
+  min-height: 100vh;
+  margin-left: -15rem;
+  border-right: 4px solid #FC863A;
+  -webkit-transition: margin .25s ease-out;
+  -moz-transition: margin .25s ease-out;
+  -o-transition: margin .25s ease-out;
+  transition: margin .25s ease-out;
+}
+#sidebar-wrapper .sidebar-heading {
+  padding: 0.875rem 1.25rem;
+  font-size: 1.6rem;
+}
+#sidebar-wrapper .list-group {
+  width: 18rem;
+}
+#page-content-wrapper {
+  min-width: 100vw;
+}
+#wrapper.toggled #sidebar-wrapper {
+  margin-left: 0;
+}
+@media (min-width: 768px) {
+  #sidebar-wrapper {
+    margin-left: 0;
+  }
+
+  #page-content-wrapper {
+    min-width: 0;
+    width: 100%;
+  }
+
+  #wrapper.toggled #sidebar-wrapper {
+    margin-left: -15rem;
+  }
+}
+
+/* Desactivo los estilos de las listas */
+.lista-menu{
+    list-style: none;
+}
+
+/* Boton personalizado */
+.btn-menu {
+    background-color: #E26F25 ;
+    color: #ECF0F1;
+}
+.btn-menu:hover {
+    background-color: #FC863A !important;
+    color: #ECF0F1;
+}
+a:hover{
+    text-decoration: none;
+}
+
+/* Inicio */
+.text-logo { color: #FC863A; }
+
+footer{
+    border-top: 4px solid #FC863A;
+}
+
+/* Imagen Informacion del usuario */
+.img-avatar{
+  height: 163px !important; 
+}
+
+/* Eventos de usuario Seleccionado */
+#tablaEventosActivosUsuario{
+  display: none;
+}
+#tablaEventosEsperaUsuario{
+  display: none;
+}
+#tablaEventosInactivosUsuario{
+  display: none;
+}
+
+#btnMostrarEventos{
+  display: block;
+}
+#btnOcultarEventos{
+  display: none;
+}
