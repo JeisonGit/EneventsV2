@@ -155,6 +155,10 @@
 
                 <div class="row ml-3" data-aos="zoom-in" data-aos-delay="100">
  
+                    <?php 
+                        if($countResultadoInactivos > 0)
+                        {
+                    ?>
                     <div class="container">
                         <p>
                             <b class="font-weight-bold">NOTA:</b> Los siguientes eventos ya finalizaron
@@ -201,6 +205,8 @@
                     <?php 
                         }  
                         // TERMINA CICLO
+                        }
+                        // Fin condicional mensaje de inactivos
                     }
                     // TERMINA CONDICIONAL
                     ?>

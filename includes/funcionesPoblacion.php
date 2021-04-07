@@ -27,6 +27,9 @@
     // oculta los errores
     error_reporting(0);
 
+    // Zona Horaria
+    date_default_timezone_set('America/Bogota');
+
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;
 

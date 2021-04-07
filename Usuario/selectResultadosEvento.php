@@ -29,7 +29,7 @@
                 <div class="col-lg-12 my-3">
                     <div class="card rounded-2">
                         <div class="card-header container-info">
-                            <h6 class="font-weight-bold mb-0">Resultados Del Evento:</h6>
+                            <h6 class="font-weight-bold mb-0">Resultados del Evento:</h6>
                         </div>
                         <div class="card-body">
 
@@ -86,7 +86,7 @@
                                                 <?php print "$".$fila['Costo'] ?> 
                                             </td>
                                             <td> 
-                                                <?php print "$".$fila['IngresosTotales'] ?> 
+                                                <?php print "$".$fila['GananciaBruta'] ?> 
                                             </td>
                                             <td> 
                                                 <?php print $fila['FechaHora'] ?> 

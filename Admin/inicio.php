@@ -75,7 +75,7 @@
                                                     </p>
                                                 <?php
                                                     }
-                                                    else if($row['Nombre'] == "Esperando")
+                                                    else if($row['Nombre'] == "Espera")
                                                     {  
                                                 ?>
                                                     <p class="card-text">

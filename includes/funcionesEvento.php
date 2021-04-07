@@ -413,7 +413,7 @@
 
                 include('conexion.php');
 
-                    $update = $conn -> query("CALL sp_ModificarEstadoEventoEliminar('$codigo','$id')");
+                    $update = $conn -> query("CALL sp_ModificarEstadoEventoEliminar('$codigo')");
 
                 mysqli_close($conn);
 

@@ -250,7 +250,15 @@
                 if($updateRecuperar){
 
                     // Cuerpo del mensaje electronico
-                    $body = "Enevents La Ceja" . "<br>Correo: eneventsceja@gmail.com" . "<br>Teléfono: 4989712 <br>" . "Hola <b>" . $fila['Nombres'] . "  " . $fila['Apellidos'] . ".</b><br>Hemos recibido una solicitud para reestablecer tu contraseña en Enevents. Sigue las siguientes instrucciones:<br>" . "1. Ingresa a la página de Enevents en la sección de iniciar sesión<br>" . "2. Ingresa tu correo empresarial: " . $fila['Correo_empresarial'] . "<br>3. utiliza la siguiente contraseña para ingresar: " . $nuevaContrasena . "<br><br><b>IMPORTANTE: NO OLVIDES MODIFICAR TU CONTRASEÑA CUANDO INGRESES A TU PERFIL<b><br><br>" . "Si luego de seguir las instrucciones aún no puedes ingresar comunicate con nosotros respondiendo este correo o presionando <a href='contacto.php'> aqui</a>";
+                    $body = 
+                    "Enevents La Ceja" . "<br>Correo: eneventsceja@gmail.com" . "<br>Teléfono: 4989712 <br>" 
+                    . "Hola <b>" . $fila['Nombres'] . "  " . $fila['Apellidos'] 
+                    . ".</b><br>Hemos recibido una solicitud para reestablecer tu contraseña en Enevents. Sigue las siguientes instrucciones:<br><br>" 
+                    . "1. Ingresa a la página de Enevents en la sección de iniciar sesión<br>" 
+                    . "2. Ingresa tu correo empresarial: " . $fila['Correo_empresarial'] 
+                    . "<br>3. Utiliza la siguiente contraseña para ingresar: " . $nuevaContrasena 
+                    . "<br><br><b>IMPORTANTE: NO OLVIDES MODIFICAR TU CONTRASEÑA CUANDO INGRESES A TU PERFIL<b><br><br>" 
+                    . "Si luego de seguir las instrucciones aún no puedes ingresar comunicate con nosotros respondiendo este correo o presionando <a href='contacto.php'> aqui</a>";
 
                     // Envio del email
                     $mail = new PHPMailer(true);
@@ -355,7 +363,7 @@
                             allowEnterKey: false
                         }).then(okay => {
                             if (okay) {
-                                location.href = 'formularioRecuperar.php';
+                                location.href = 'recuperarContrasena.php';
                             }
                         });
                     </script>
@@ -436,7 +444,7 @@
                                 allowEnterKey: true
                             }).then(okay => {
                                 if (okay) {
-                                    location.href = "../iniciarSesion.php";
+                                    location.href = "iniciarSesion.php";
                                 }
                             });
                         </script>
@@ -455,7 +463,7 @@
                             allowEnterKey: true
                         }).then(okay => {
                             if (okay) {
-                                location.href = "../iniciarSesion.php";
+                                location.href = "iniciarSesion.php";
                             }
                         });
                     </script>

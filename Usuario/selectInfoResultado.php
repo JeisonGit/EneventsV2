@@ -19,7 +19,7 @@
     <!-- SECCION QUE CONTIENE TODA LA INFORMACIÓN DEL RESULTADO SELECCIONADO Y DEL EVENTO AL QUE PERTENECE -->
     <section class="bg-grey">
         <div class="container">
-        <input type="button" value="Atrás" class="btn btn-menu mt-3" onClick="history.go(-1);">
+        <a href="selectResultadosEvento.php?cod=<?php print $fila['codEvento'] ?>" class="btn btn-menu mt-3">Resultados</a>
             <div class="row">
                 <div class="col-lg-12 my-3">
                     <div class="card rounded-2">
