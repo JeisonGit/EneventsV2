@@ -98,9 +98,9 @@
                     <li>
                         <a href="reportesAdmin.php" class="d-block text-light p-3"><i class="far fa-clipboard mr-2 lead"></i> Reportes</a>
                     </li>
-                    <li>
+                    <!-- <li>
                         <a href="configAdmin.php" class="d-block text-light p-3"><i class="far fa-cogs mr-2 lead"></i> Configuración</a>
-                    </li>
+                    </li> -->
                     <li>
                         <a href="../sesion/logout.php" class="d-block text-light p-3"><i class="far fa-sign-out-alt mr-2 lead"></i> Cerrar Sesión</a>
                     </li>   

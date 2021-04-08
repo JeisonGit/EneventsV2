@@ -77,7 +77,7 @@
                                                     </p>
 
                                                     <p class="card-text mb-3">
-                                                        <b class="font-weight-bold">Área de Trabajo:</b> $<?php print $fila['areaTrabajo'] ?>
+                                                        <b class="font-weight-bold">Área de Trabajo:</b> <?php print $fila['areaTrabajo'] ?>
                                                     </p>
                                                 </div>
 

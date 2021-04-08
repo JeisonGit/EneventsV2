@@ -1427,7 +1427,7 @@
                                 allowEnterKey: false
                             }).then(okay => {
                                 if (okay) {
-                                    location.href = "selectUsuarios.php?Estado='Espera'";
+                                    location.href = "selectUsuarios.php?Estado=Espera";
                                 }
                             });
                         </script>

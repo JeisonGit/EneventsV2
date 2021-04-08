@@ -31,8 +31,6 @@
         <div class="container d-flex justify-content-center">
             <div class="col-lg-10 my-3">
 
-                <input type="button" value="Atrás" class="btn btn-menu my-3" onClick="history.go(-1);">
-
                 <div class="card rounded-2 border border-warning">
 
                     <div class="card-header container-info">
