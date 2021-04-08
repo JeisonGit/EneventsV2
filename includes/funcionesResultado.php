@@ -55,6 +55,101 @@
         return $fila;
     }
 
+    function ValidarDatosResultado($valorEntrada, $asistencia, $costo, $ingresosAdicionales, $valoracion, $descripcion){
+
+        if($valorEntrada == null || $asistencia == null || $costo == null || $ingresosAdicionales == null || $valoracion == null){
+            ?>
+                <script>
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'ADVERTENCIA!!',
+                            html: 'Todos los datos cuyo enunciado tenga un <b>*</b> son obligatorios.',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false,
+                            allowEnterKey: true
+                        });
+                </script>
+            <?php
+            die();
+        }
+        else if(!is_int($asistencia) || $asistencia < 0 || $asistencia > 999999){
+            ?>
+                <script>
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'ADVERTENCIA!!',
+                        html: 'La <b>Asistencia</b> no es válida.<br><br><b>Nota:</b> Sólo valores númericos enteros positivos. (Mín. 0 / Máx. 999.999)',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false,
+                        allowEnterKey: true
+                    });
+                </script>
+            <?php
+            die();
+        }
+        else if(!is_int($costo) || $costo < 0 || $costo > 999999999){
+            ?>
+                <script>
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'ADVERTENCIA!!',
+                        html: 'Los <b>Costos Operacionales</b> no son válidos.<br><br><b>Nota:</b> Sólo valores númericos enteros positivos. (Mín. 0 / Máx. 999.999.999)',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false,
+                        allowEnterKey: true
+                    });
+                </script>
+            <?php
+            die();
+        }
+        else if(!is_int($ingresosAdicionales) || $ingresosAdicionales < 0 || $ingresosAdicionales > 999999999){
+            ?>
+                <script>
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'ADVERTENCIA!!',
+                        html: 'Los <b>Ingresos Adicionales</b> no son válidos.<br><br><b>Nota:</b> Sólo valores númericos enteros positivos. (Mín. 0 / Máx. 999.999.999)',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false,
+                        allowEnterKey: true
+                    });
+                </script>
+            <?php
+            die();
+        }
+        else if(!is_int($valoracion) || $valoracion < 1 || $valoracion > 5){
+            ?>
+                <script>
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'ADVERTENCIA!!',
+                        html: 'La <b>Valoración</b> no es válida.<br><br><b>Nota:</b> Sólo un valor númerico entero positivo. (Mín. 1 / Máx. 5)',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false,
+                        allowEnterKey: true
+                    });
+                </script>
+            <?php
+            die();
+        }
+        else if(strlen($descripcion) > 2000){
+            ?>
+                <script>
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'ADVERTENCIA!!',
+                        html: 'La <b>Observación</b> es demasiado larga.',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false,
+                        allowEnterKey: true
+                    });
+                </script>
+            <?php
+            die();
+        }  
+        
+    }
+
     // Función que agrega un nuevo resultado
     function AgregarResultado($codEvento){
 
@@ -65,6 +160,8 @@
         $ingresosAdicionales = $_POST['ingresosadicionales'];
         $valoracion = $_POST['valoracion'];
         $descripcion = $_POST['descripcion'];
+
+        ValidarDatosResultado($valorEntrada, $asistencia, $costo, $ingresosAdicionales, $valoracion, $descripcion);
 
         include('conexion.php');
 

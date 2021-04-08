@@ -60,13 +60,116 @@
     }
 
     // Función que valida los datos ingresados en el formulario del evento
-    function ValidarDatosEvento(){
+    function ValidarDatosEvento($categoria, $nombre, $fhini, $fhfin, $lugar, $costo, $descripcion, $imgPost, $tamano_img){
         
-        if($usuario == null || $categoria == null || $nombre == null || $fhini == null || $fhfin == null || $lugar == null || $descripcion == null || $imgPost == null){
-
-            $swValidarDatosEvento = true;
+        if($categoria == null || $nombre == null || $fhini == null || $fhfin == null || $lugar == null || $descripcion == null ){
+            ?>
+                <script>
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'ADVERTENCIA!!',
+                            html: 'Todos los datos cuyo enunciado tenga un <b>*</b> son obligatorios.',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false,
+                            allowEnterKey: true
+                        });
+                </script>
+            <?php
+                die();
         }
+        else if(strlen($nombre) > 500){
+            ?>
+                <script>
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'ADVERTENCIA!!',
+                            html: 'El <b>Nombre</b> es demasiado largo.',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false,
+                            allowEnterKey: true
+                        });
+                </script>
+            <?php
+            die();
+        }
+        else if($imgPost != null){
 
+            if($tamano_img > 300000){
+                ?>
+                    <script>
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'ADVERTENCIA!!',
+                            html: 'La <b>Imagen</b> es demasiado pesada.<br>(Máx. 300 KB)',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false,
+                            allowEnterKey: true
+                        });
+                    </script>
+                <?php
+                die(); 
+            }
+        }
+        else if($fhini > $fhfin){
+            ?>
+                <script>
+                        Swal.fire({
+                        icon: 'warning',
+                        title: 'ADVERTENCIA!!',
+                        html: 'La <b>Fecha y Hora de Inicio</b> debe ser "Menor" a la <b>Fecha y Hora de Finalización</b>.',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false,
+                        allowEnterKey: true
+                    });
+                </script>
+            <?php
+            die();
+        }
+        else if(strlen($lugar) > 100){
+            ?>
+                <script>
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'ADVERTENCIA!!',
+                        html: 'El <b>Lugar / Dirección</b> donde se realizará el evento es demasiado largo.',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false,
+                        allowEnterKey: true
+                    });
+                </script>
+            <?php
+            die();
+        }
+        else if(!is_int($costo) || $costo < 0 || $costo > 99999999){
+            ?>
+                <script>
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'ADVERTENCIA!!',
+                        html: 'El <b>Costo</b> de entrada no es válido.<br><br><b>Nota:</b> Sólo valores númericos enteros positivos. (Mín. 0 / Máx. 99.999.999)',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false,
+                        allowEnterKey: true
+                    });
+                </script>
+            <?php
+            die();
+        }
+        else if(strlen($descripcion) > 3000){
+            ?>
+                <script>
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'ADVERTENCIA!!',
+                        html: 'La <b>Descripción</b> es demasiado larga.',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false,
+                        allowEnterKey: true
+                    });
+                </script>
+            <?php
+            die();
+        }  
     }
 
     // FUNCIONES MODULO USUARIO CREADOR
@@ -141,27 +244,13 @@
 
         $imgPost = $_FILES['imagen']['name'];
         $archivo = $_FILES['imagen']['tmp_name'];
+        $tipo_img = $_FILES['imagen']['type']; 
+        $tamano_img = $_FILES['imagen']['size'];  
 
         $rutaBD = "/Enevents/archivos/eventos/" . $imgPost; 
         $rutaServidor = $_SERVER["DOCUMENT_ROOT"] . "/Enevents/archivos/eventos/" . $imgPost;
 
-        ValidarDatosEvento();
-        if($swValidarDatosEvento == true){
-            ?>
-                <script>
-                        Swal.fire({
-                            icon: 'warning',
-                            title: 'ADVERTENCIA!!',
-                            html: 'Todos los datos cuyo enunciado tenga un <b>*</b> son obligatorios.',
-                            allowOutsideClick: false,
-                            allowEscapeKey: false,
-                            allowEnterKey: true
-                        });
-                </script>
-            <?php
-            $swValidarDatosEvento = false;
-        }
-        else{
+        ValidarDatosEvento($usuario, $categoria, $nombre, $fhini, $fhfin, $lugar, $costo, $descripcion, $imgPost, $tamano_img);
 
             copy($archivo, $rutaServidor);
 
@@ -203,7 +292,6 @@
                     </script>
                 <?php 
             } 
-        }
     }
 
     // Función que trae la información del evento a modificar
@@ -229,19 +317,21 @@
         $fhini = $_POST['fhinicio'];
         $fhfin = $_POST['fhfinal'];
         $lugar = $_POST['lugar'];
-        $valor = $_POST['valor'];
+        $costo = $_POST['valor'];
         $descripcion = $_POST['descripcion'];
 
         $imgPost = $_FILES['imagen']['name']; 
         $archivo = $_FILES['imagen']['tmp_name']; 
         $rutaBD = "/Enevents/archivos/eventos/" . $imgPost; 
-        $rutaServidor = $_SERVER["DOCUMENT_ROOT"] . "/Enevents/archivos/eventos/" . $imgPost;     
+        $rutaServidor = $_SERVER["DOCUMENT_ROOT"] . "/Enevents/archivos/eventos/" . $imgPost; 
+        
+        // ValidarDatosEvento($categoria, $nombre, $fhini, $fhfin, $lugar, $costo, $descripcion, $imgPost, $tamano_img);
 
         if($imgPost == ""){
 
             include('conexion.php');
 
-                $updateEvento = $conn -> query("CALL sp_ModificarInformacionEventoSinImagenUsuarioSesion('$codEvento','$id','$categoria','$nombre','$fhini','$fhfin','$lugar','$valor','$descripcion')");
+                $updateEvento = $conn -> query("CALL sp_ModificarInformacionEventoSinImagenUsuarioSesion('$codEvento','$id','$categoria','$nombre','$fhini','$fhfin','$lugar','$costo','$descripcion')");
 
             mysqli_close($conn);
         }
@@ -251,7 +341,7 @@
 
             include('conexion.php');
 
-                $updateEvento = $conn -> query("CALL sp_ModificarInformacionEventoConImagenUsuarioSesion ('$codEvento','$id','$categoria','$nombre','$rutaBD','$fhini','$fhfin','$lugar','$valor','$descripcion')");
+                $updateEvento = $conn -> query("CALL sp_ModificarInformacionEventoConImagenUsuarioSesion ('$codEvento','$id','$categoria','$nombre','$rutaBD','$fhini','$fhfin','$lugar','$costo','$descripcion')");
 
             mysqli_close($conn);
         }
