@@ -8,6 +8,7 @@
     $eventos = CantidadEventosInicioPanel();
     $usuarios = CantidadUsuariosInicioPanel();
 
+
 ?>
 <?php include('includes/headerAdmin.php') ?>
 
@@ -23,8 +24,11 @@
                 </div>
 
                 <!-- MANUAL DEL USUARIO -->
-                <div class="col-lg-3 d-flex">
-                    <a href="pdf/ManualUsuario.pdf" class="btn btn-menu w-100 align-self-center" target="_blank">Manual Técnico</a>
+                <div class="col-lg-3">
+                    <a href="../archivos/pdf/ManualTecnico.pdf" class="btn btn-menu w-100 align-self-center" target="_blank">Manual Técnico</a>
+                    <!-- <form action="backupBD.php" method="post">
+                        <input type="submit" value="Copia de Seguridad Base Datos" name="backup" class="btn btn-menu w-100 align-self-center">
+                    </form> -->
                 </div>
             </div>
         </div>

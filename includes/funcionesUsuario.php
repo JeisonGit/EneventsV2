@@ -1472,6 +1472,25 @@
         }
     }
 
+
+    // COPIA DE SEGURIDAD BASE DE DATOS
+
+    // Función para realizar copia de seguridad de la bd, pero al presionar el boton buguea la aplicacion
+    // function RealizarBackupBaseDatos(){
+
+    //     include('conexion.php');
+
+    //     $fecha = date("Y-m-d H:i:s");
+        
+    //     $BD = $dbname.'_'.$fecha.'.sql';
+
+    //     $dump = "mysqldump -h$servername  -u$username -p$password $dbname > C:\\". $dbname . "_" . $fecha . "sql";
+
+    //     system($dump);
+
+    //     mysqli_close($conn);
+    // }
+
 ?>
 
     <!-- Sweet alerts -->

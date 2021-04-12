@@ -5,7 +5,7 @@ const expresionNombres = /^[A-z]+$/i;
 function validarImgEventos() {
     var imgId = document.getElementById("imagenEvento");
     var imgEvento = imgId.value;
-    var extPermitidas = /(.PNG|.jpg)$/i;
+    var extPermitidas = /(.PNG|.jpg|.jfif)$/i;
 
     if (!extPermitidas.exec(imgEvento)) {
         alert("Comprueba la extension de tus imagenes. Los formatos aceptados son: png, jpg y jpeg.");

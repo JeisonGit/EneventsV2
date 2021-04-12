@@ -250,7 +250,7 @@
         $rutaBD = "/Enevents/archivos/eventos/" . $imgPost; 
         $rutaServidor = $_SERVER["DOCUMENT_ROOT"] . "/Enevents/archivos/eventos/" . $imgPost;
 
-        ValidarDatosEvento($usuario, $categoria, $nombre, $fhini, $fhfin, $lugar, $costo, $descripcion, $imgPost, $tamano_img);
+        ValidarDatosEvento($categoria, $nombre, $fhini, $fhfin, $lugar, $costo, $descripcion, $imgPost, $tamano_img);
 
             copy($archivo, $rutaServidor);
 

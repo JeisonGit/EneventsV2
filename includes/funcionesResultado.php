@@ -161,7 +161,7 @@
         $valoracion = $_POST['valoracion'];
         $descripcion = $_POST['descripcion'];
 
-        ValidarDatosResultado($valorEntrada, $asistencia, $costo, $ingresosAdicionales, $valoracion, $descripcion);
+        // ValidarDatosResultado($valorEntrada, $asistencia, $costo, $ingresosAdicionales, $valoracion, $descripcion);
 
         include('conexion.php');
 
